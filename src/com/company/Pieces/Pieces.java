@@ -21,6 +21,10 @@ public class Pieces implements RemoteInterface {
     private String[] colors = {"",""};
     Logic ref = new Logic();
 
+    /**
+     * konstruktor der pieces klasse, verbindet den clienten zum server
+     * @throws RemoteException
+     */
     public Pieces() throws RemoteException {
 try {
     server = (RemoteInterface) Naming.lookup("rmi://" + "localhost" + "/Chess");
@@ -30,6 +34,15 @@ try {
         }
     }
 
+    /**
+     * bewegt die figuren auf dem gameboard
+     * funktioniert indem das jlabel der entsprechenden figur zwischengespeichert wird, dieses dann entfernt und an der position des 2. klicks eingefügt wird
+     * @param coordinateXYZV
+     * @param colors
+     * @param tile
+     * @param chessBoard
+     * @throws RemoteException
+     */
     public  void movePiece(int[] coordinateXYZV, String[] colors, JPanel[][] tile, JFrame chessBoard) throws RemoteException{
         //speichert die aktuelle figur zwischen um sie später zu bewegen
         Component label = tile[coordinateXYZV[0]][coordinateXYZV[1]].getComponent(0);
@@ -58,7 +71,8 @@ try {
     //Aktuelle und Neue Koordinaten der gewählten Figur
 
     /**
-     *
+     * stellt informationen für die movePiece() methode zur verfügung.
+     * diese sind : farbe der spielfiguren, positionen
      * @param e mousehandler
      * @param coordinates
      * @param tile

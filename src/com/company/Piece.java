@@ -17,6 +17,15 @@ public interface Piece {
 
     Icon image();
 
+    /**
+     * fügt die entsprechende spielfigur ein. konkrete implementierung in den klassen der figuren, einziger unterschied der filepath für das entsprechende bild
+     * @param x
+     * @param y
+     * @param tile
+     * @param pName
+     * @param white
+     * @throws IOException
+     */
     void addPiece(int x, int y, JPanel [][] tile, String pName, boolean white) throws IOException;
 
 

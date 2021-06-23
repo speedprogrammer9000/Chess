@@ -107,10 +107,7 @@ public class EntryUI {
     }
 
     /**
-     * im terribly sorry for this monstrosity. i swear.
-     * basically this method handles all kinds of input related to the username.
-     * it either accepts a new one and adds it to the list + serializes it or allows to choose one of the usernames of the deserialized String[] playerNames
-     * also handles the entire UI which pops up. yeah. this is bad.
+     * startet kleines ui für den nameinput in welchem serialisierung/deserialiserung sowie der client aufgerufen wird
      * @throws IOException
      */
     public void inputName() throws IOException {
@@ -199,6 +196,11 @@ public class EntryUI {
             System.out.println("Max number of clients reached.");
         }
     }
+
+    /**
+     * serializes the arraylist playerNames
+     * @param arraylist
+     */
     public void serializeArrayList(ArrayList<String> arraylist){
         try{
             FileOutputStream fos = new FileOutputStream("playerNames");
@@ -210,6 +212,10 @@ public class EntryUI {
             e.printStackTrace();
         }
     }
+
+    /**
+     * deserializes the arraylist playerNames
+     */
     public void deserializeArrayList(){
         try
         {

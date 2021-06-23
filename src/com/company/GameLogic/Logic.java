@@ -7,7 +7,10 @@ import javax.swing.*;
 
 public class Logic {
 
-
+    /**
+     * zeigt den gewinner an und startet das postgame ui
+     * @param chessBoard
+     */
     public void blackWins(JFrame chessBoard ){
         System.out.println("Black Wins");
         chessBoard.dispose();
@@ -15,6 +18,10 @@ public class Logic {
         postgameui.initPostgameUI();
 
     }
+    /**
+     * zeigt den gewinner an und startet das postgame ui
+     * @param chessBoard
+     */
     public void whiteWins(JFrame chessBoard){
         System.out.println("White Wins");
         chessBoard.dispose();

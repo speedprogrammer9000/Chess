@@ -26,9 +26,17 @@ public class ServerProgram extends UnicastRemoteObject implements RemoteInterfac
 
     }
 
+    /**
+     * main caller methode
+     */
     public static void mainCaller(){
         main(null);
     }
+
+    /**
+     * startet den server
+     * @param args
+     */
     public static void main(String args[]) {
         try {
             RemoteInterface provider = new ServerProgram();

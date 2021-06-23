@@ -21,6 +21,11 @@ public class UI extends JPanel{
     public UI() throws IOException {
 
     }
+
+    /**
+     * startet das gameboard
+     * @throws IOException
+     */
     public void initGameboard() throws IOException {
         MouseHandler mhandler = new MouseHandler();
 
@@ -36,10 +41,19 @@ public class UI extends JPanel{
 
     }
 
+    /**
+     * ruft die methoden zum zufügen der spielfiguren auf
+     * @throws IOException
+     */
     public void addAllPieces() throws IOException {
         addWhitePieces();
         addBlackPieces();
     }
+
+    /**
+     * fügt alle schwarzen spielfiguren hinzu
+     * @throws IOException
+     */
     public void addBlackPieces() throws IOException {
         Pawn pb = new Pawn();
         for(int w=0; w<8; w++ ) {
@@ -65,6 +79,11 @@ public class UI extends JPanel{
         knb.addPiece(0,6,tile,"BKnight", false);
 
     }
+
+    /**
+     * fügt alle weißen spielfiguren hinzu
+     * @throws IOException
+     */
     public void addWhitePieces() throws IOException {
         Pawn pw = new Pawn();
         for(int w=0; w<8; w++ ) {
@@ -89,6 +108,11 @@ public class UI extends JPanel{
         knw.addPiece(7,6,tile,"WKnight", true);
     }
 
+    /**
+     * füllt das gameboard mit den tiles auf denen sich die figuren befinden
+     * @param chessBoard
+     * @param m
+     */
     public void addTiles(JFrame chessBoard , MouseHandler m) {
         String letter;
         for(int i=0;i<8;i++){
@@ -125,6 +149,9 @@ public class UI extends JPanel{
         }
     }
 
+    /**
+     * mousehandler, ruft bei klick die getPos methode auf
+     */
     public class MouseHandler implements MouseListener{
 
         @Override
