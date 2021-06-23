@@ -158,12 +158,12 @@ try {
                 break;
             case "Rook":
                 if (coordinateXYZV[0]==coordinateXYZV[2] && coordinateXYZV[1]!=coordinateXYZV[3] ||
-                    coordinateXYZV[1]==coordinateXYZV[3] && coordinateXYZV[0]!=coordinateXYZV[2] ){
+                    coordinateXYZV[0]!=coordinateXYZV[2] && coordinateXYZV[1]==coordinateXYZV[3] ){
                     allowed = true;
                 }
                 break;
             case "Knight":
-                if (coordinateXYZV[0]==coordinateXYZV[2]+2 && coordinateXYZV[1]==coordinateXYZV[3]+1 ||
+                if (coordinateXYZV[0]==coordinateXYZV[2]+2 && coordinateXYZV[1]==coordinateXYZV[3]+1 |
                     coordinateXYZV[0]==coordinateXYZV[2]+2 && coordinateXYZV[1]==coordinateXYZV[3]-1 ||
                     coordinateXYZV[0]==coordinateXYZV[2]-2 && coordinateXYZV[1]==coordinateXYZV[3]+1 ||
                     coordinateXYZV[0]==coordinateXYZV[2]-2 && coordinateXYZV[1]==coordinateXYZV[3]-1 ||
@@ -174,6 +174,40 @@ try {
                     allowed = true;
                 }
                 break;
+            case "Bishop":
+                for(int i=0;i<=7;i++) {
+                    if (coordinateXYZV[0]==coordinateXYZV[2]+i && coordinateXYZV[1]==coordinateXYZV[3]+i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]-i && coordinateXYZV[1]==coordinateXYZV[3]-i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]+i && coordinateXYZV[1]==coordinateXYZV[3]-i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]-i && coordinateXYZV[1]==coordinateXYZV[3]+i ){
+                        allowed = true;
+                        break;
+                    }
+                }
+                break;
+            case "Queen":
+                for(int i=0;i<=7;i++) {
+                    if (coordinateXYZV[0]==coordinateXYZV[2]+i && coordinateXYZV[1]==coordinateXYZV[3]+i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]-i && coordinateXYZV[1]==coordinateXYZV[3]-i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]+i && coordinateXYZV[1]==coordinateXYZV[3]-i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]-i && coordinateXYZV[1]==coordinateXYZV[3]+i ||
+                        coordinateXYZV[0]==coordinateXYZV[2]   && coordinateXYZV[1]!=coordinateXYZV[3]   ||
+                        coordinateXYZV[0]!=coordinateXYZV[2]   && coordinateXYZV[1]==coordinateXYZV[3]   ){
+                        allowed = true;
+                        break;
+                    }
+                }
+                break;
+            case "King":
+                if (coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]+1  ||
+                    coordinateXYZV[0]==coordinateXYZV[2]-1 && coordinateXYZV[1]==coordinateXYZV[3]-1  ||
+                    coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]-1  ||
+                    coordinateXYZV[0]==coordinateXYZV[2]-1 && coordinateXYZV[1]==coordinateXYZV[3]+1  ||
+                    coordinateXYZV[0]==coordinateXYZV[2]+1 || coordinateXYZV[1]==coordinateXYZV[3]+1  ||
+                    coordinateXYZV[0]==coordinateXYZV[2]-1 || coordinateXYZV[1]==coordinateXYZV[3]-1  ){
+                    allowed = true;
+                    break;
+                }
         }
         return allowed;
     }
