@@ -15,7 +15,5 @@ public class Main   {
 
         EntryUI options = new EntryUI();
         options.initOptionsUI();
-
-
     }
 }

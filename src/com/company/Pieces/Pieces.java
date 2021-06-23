@@ -51,11 +51,14 @@ try {
         //Schlagen von Figuren
         if(tile[coordinateXYZV[2]][coordinateXYZV[3]]!=null && !colors[0].equals(colors[1])){
             tile[coordinateXYZV[0]][coordinateXYZV[1]].removeAll();
-            if(tile[coordinateXYZV[2]][coordinateXYZV[3]].getComponent(0).getName().substring(0, 5).equals("WKing")){
-                ref.blackWins(chessBoard);
-            }
-            else if(tile[coordinateXYZV[2]][coordinateXYZV[3]].getComponent(0).getName().substring(0, 5).equals("BKing")){
-                ref.whiteWins(chessBoard);
+            try {
+                if (tile[coordinateXYZV[2]][coordinateXYZV[3]].getComponent(0).getName().substring(0, 5).equals("WKing")) {
+                    ref.blackWins(chessBoard);
+                } else if (tile[coordinateXYZV[2]][coordinateXYZV[3]].getComponent(0).getName().substring(0, 5).equals("BKing")) {
+                    ref.whiteWins(chessBoard);
+                }
+            }catch (Exception ignored){
+
             }
             tile[coordinateXYZV[2]][coordinateXYZV[3]].removeAll();
 
@@ -106,6 +109,7 @@ try {
                             }
 
                             movePiece(coordinateXYZV, colors, tile, chessBoard);
+
                             colors[0] = "";
                             colors[1] = "";
                             c = 0;
