@@ -43,11 +43,11 @@ public class Bishop extends JLabel implements Piece {
 
         this.pName = pName;
         if(white) {
-            BufferedImage imgw = ImageIO.read(new File("BishopWhite.png"));
+            BufferedImage imgw = ImageIO.read(new File("Pictures/BishopWhite.png"));
             label.setIcon(new ImageIcon(imgw));
         }
         else{
-            BufferedImage imgb = ImageIO.read(new File("BishopBlack.png"));
+            BufferedImage imgb = ImageIO.read(new File("Pictures/BishopBlack.png"));
             label.setIcon(new ImageIcon(imgb));
         }
 

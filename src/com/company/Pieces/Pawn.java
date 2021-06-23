@@ -41,11 +41,11 @@ public class Pawn extends JLabel implements Piece  {
         label.setName(pName);
         this.pName = pName;
         if(white) {
-            BufferedImage imgw = ImageIO.read(new File("PawnWhite.png"));
+            BufferedImage imgw = ImageIO.read(new File("Pictures/PawnWhite.png"));
             label.setIcon(new ImageIcon(imgw));
         }
         else{
-            BufferedImage imgb = ImageIO.read(new File("PawnBlack.png"));
+            BufferedImage imgb = ImageIO.read(new File("Pictures/PawnBlack.png"));
             label.setIcon(new ImageIcon(imgb));
         }
         tile[y][x].add(label);

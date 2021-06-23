@@ -40,11 +40,11 @@ public class King extends JLabel implements Piece {
         label.setName(pName);
         this.pName = pName;
         if(white) {
-            BufferedImage imgw = ImageIO.read(new File("KingWhite.png"));
+            BufferedImage imgw = ImageIO.read(new File("Pictures/KingWhite.png"));
             label.setIcon(new ImageIcon(imgw));
         }
         else{
-            BufferedImage imgb = ImageIO.read(new File("KingBlack.png"));
+            BufferedImage imgb = ImageIO.read(new File("Pictures/KingBlack.png"));
             label.setIcon(new ImageIcon(imgb));
         }
         tile[y][x].add(label);

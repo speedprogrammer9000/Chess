@@ -40,11 +40,11 @@ public class Queen extends JLabel implements Piece {
         label.setName(pName);
         this.pName = pName;
         if(white) {
-            BufferedImage imgw = ImageIO.read(new File("QueenWhite.png"));
+            BufferedImage imgw = ImageIO.read(new File("Pictures/QueenWhite.png"));
             label.setIcon(new ImageIcon(imgw));
         }
         else{
-            BufferedImage imgb = ImageIO.read(new File("QueenBlack.png"));
+            BufferedImage imgb = ImageIO.read(new File("Pictures/QueenBlack.png"));
             label.setIcon(new ImageIcon(imgb));
         }
         tile[y][x].add(label);

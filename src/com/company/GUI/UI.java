@@ -57,7 +57,7 @@ public class UI extends JPanel{
     public void addBlackPieces() throws IOException {
         Pawn pb = new Pawn();
         for(int w=0; w<8; w++ ) {
-            pb.addPiece(1, w, tile,"BPawn", false);
+            pb.addPiece(1, w, tile,"BPawn1", false);
         }
 
         Queen qb = new Queen();
@@ -75,7 +75,7 @@ public class UI extends JPanel{
         bb.addPiece(0,5,tile,"BBishop", false);
 
         Knight knb = new Knight();
-        knb.addPiece(0,1,tile,"BKinght", false);
+        knb.addPiece(0,1,tile,"BKnight", false);
         knb.addPiece(0,6,tile,"BKnight", false);
 
     }
@@ -87,7 +87,7 @@ public class UI extends JPanel{
     public void addWhitePieces() throws IOException {
         Pawn pw = new Pawn();
         for(int w=0; w<8; w++ ) {
-            pw.addPiece(6, w, tile,"WPawn", true);
+            pw.addPiece(6, w, tile,"WPawn1", true);
         }
         Queen qw = new Queen();
         qw.addPiece(7,3,tile,"WQueen", true);

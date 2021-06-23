@@ -40,11 +40,11 @@ public class Knight extends JLabel implements Piece {
         label.setName(pName);
         this.pName = pName;
         if(white) {
-            BufferedImage imgw = ImageIO.read(new File("KnightWhite.png"));
+            BufferedImage imgw = ImageIO.read(new File("Pictures/KnightWhite.png"));
             label.setIcon(new ImageIcon(imgw));
         }
         else{
-            BufferedImage imgb = ImageIO.read(new File("knightBlack.png"));
+            BufferedImage imgb = ImageIO.read(new File("Pictures/KnightBlack.png"));
             label.setIcon(new ImageIcon(imgb));
         }
         tile[y][x].add(label);

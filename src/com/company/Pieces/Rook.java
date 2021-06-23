@@ -40,11 +40,11 @@ public class Rook extends JLabel implements Piece {
         label.setName(pName);
         this.pName = pName;
         if(white) {
-            BufferedImage imgw = ImageIO.read(new File("RookWhite.png"));
+            BufferedImage imgw = ImageIO.read(new File("Pictures/RookWhite.png"));
             label.setIcon(new ImageIcon(imgw));
         }
         else{
-            BufferedImage imgb = ImageIO.read(new File("RookBlack.png"));
+            BufferedImage imgb = ImageIO.read(new File("Pictures/RookBlack.png"));
             label.setIcon(new ImageIcon(imgb.getScaledInstance(64,64,BufferedImage.SCALE_SMOOTH)));
         }
         tile[y][x].add(label);
