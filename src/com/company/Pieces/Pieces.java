@@ -19,6 +19,7 @@ public class Pieces implements RemoteInterface {
     private RemoteInterface server = null;
     private int c=0;
     private String[] colors = {"",""};
+    private int turnCounter = 1;
     Logic ref = new Logic();
 
     /**
@@ -64,11 +65,10 @@ try {
 
             tile[coordinateXYZV[2]][coordinateXYZV[3]].add(label);
 
+            turnCounter++;
         }
 
         SwingUtilities.updateComponentTreeUI(chessBoard);
-
-
     }
 
     //Aktuelle und Neue Koordinaten der gewählten Figur
@@ -108,9 +108,16 @@ try {
 
                             }
 
-                            if (canMove(coordinateXYZV,getPiece(coordinateXYZV,tile),colors,tile)) {
-                                movePiece(coordinateXYZV, colors, tile, chessBoard);
+                            if(turnCounter%2!=0 && colors[0].equals("W")){
+                                if (canMove(coordinateXYZV,getPiece(coordinateXYZV,tile),colors,tile)) {
+                                    movePiece(coordinateXYZV, colors, tile, chessBoard);
+                                }
+                            }else if(turnCounter%2==0 && colors[0].equals("B")){
+                                if (canMove(coordinateXYZV,getPiece(coordinateXYZV,tile),colors,tile)) {
+                                    movePiece(coordinateXYZV, colors, tile, chessBoard);
+                                }
                             }
+
                             colors[0] = "";
                             colors[1] = "";
                             c = 0;
@@ -127,9 +134,6 @@ try {
     public boolean canMove(int[] coordinateXYZV, String piece, String[] colors, JPanel[][] tile) {
         Boolean allowed = false;
         boolean pawnFirstTurn = false;
-        System.out.println(piece);
-        System.out.println(coordinateXYZV[1]);
-        System.out.println(coordinateXYZV[3]);
 
         if (piece.equals("Pawn1")){
             pawnFirstTurn = true;
@@ -137,22 +141,18 @@ try {
             tile[coordinateXYZV[0]][coordinateXYZV[1]].getComponent(0).setName(colors[0]+"Pawn");
         }
 
-
         switch (piece) {
             case "Pawn":
-                if (pawnFirstTurn && colors[0].equals("W") && coordinateXYZV[2]>=coordinateXYZV[0]-2 &&
-                    coordinateXYZV[0]>=coordinateXYZV[2] && coordinateXYZV[1]<=coordinateXYZV[3]+1 && coordinateXYZV[1]>=coordinateXYZV[3]-1) {
+                if (pawnFirstTurn && colors[0].equals("W") && coordinateXYZV[0]<=coordinateXYZV[2]+2 && coordinateXYZV[0]!=coordinateXYZV[2] && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
+                    pawnFirstTurn && colors[0].equals("B") && coordinateXYZV[0]>=coordinateXYZV[2]-2 && coordinateXYZV[0]!=coordinateXYZV[2] && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
+                                     colors[0].equals("W") && coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
+                                     colors[0].equals("B") && coordinateXYZV[0]==coordinateXYZV[2]-1 && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
+                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]-1 && colors[1].equals("W") ||
+                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]+1 && colors[1].equals("W") ||
+                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]-1 && colors[1].equals("B") ||
+                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]+1 && colors[1].equals("B") ){
                     allowed = true;
-                }else if(colors[0].equals("W") && coordinateXYZV[2]>=coordinateXYZV[0]-1 &&
-                         coordinateXYZV[0]>=coordinateXYZV[2] && coordinateXYZV[1]<=coordinateXYZV[3]+1 && coordinateXYZV[1]>=coordinateXYZV[3]-1){
-                    allowed = true;
-                }else if(pawnFirstTurn && colors[0].equals("B") && coordinateXYZV[2]<=coordinateXYZV[0]+2 &&
-                         coordinateXYZV[0]<=coordinateXYZV[2] && coordinateXYZV[1]<=coordinateXYZV[3]+1 && coordinateXYZV[1]>=coordinateXYZV[3]-1){
-                    allowed = true;
-                }else if(colors[0].equals("B") && coordinateXYZV[2]<=coordinateXYZV[0]+1 &&
-                         coordinateXYZV[0]<=coordinateXYZV[2] && coordinateXYZV[1]<=coordinateXYZV[3]+1 && coordinateXYZV[1]>=coordinateXYZV[3]-1){
-                    allowed = true;
-                }else if(pawnFirstTurn){
+                }else if(pawnFirstTurn || coordinateXYZV[0]==coordinateXYZV[2] && coordinateXYZV[1]==coordinateXYZV[3]){
                     tile[coordinateXYZV[0]][coordinateXYZV[1]].getComponent(0).setName(colors[0]+"Pawn1");
                 }
                 break;
