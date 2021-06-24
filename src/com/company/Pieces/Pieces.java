@@ -147,10 +147,10 @@ try {
                     pawnFirstTurn && colors[0].equals("B") && coordinateXYZV[0]>=coordinateXYZV[2]-2 && coordinateXYZV[0]!=coordinateXYZV[2] && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
                                      colors[0].equals("W") && coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
                                      colors[0].equals("B") && coordinateXYZV[0]==coordinateXYZV[2]-1 && coordinateXYZV[1]==coordinateXYZV[3] && colors[1].equals("") ||
-                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]-1 && colors[1].equals("W") ||
-                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]+1 && colors[1].equals("W") ||
                                      coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]-1 && colors[1].equals("B") ||
-                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]+1 && colors[1].equals("B") ){
+                                     coordinateXYZV[0]==coordinateXYZV[2]+1 && coordinateXYZV[1]==coordinateXYZV[3]+1 && colors[1].equals("B") ||
+                                     coordinateXYZV[0]==coordinateXYZV[2]-1 && coordinateXYZV[1]==coordinateXYZV[3]-1 && colors[1].equals("W") ||
+                                     coordinateXYZV[0]==coordinateXYZV[2]-1 && coordinateXYZV[1]==coordinateXYZV[3]+1 && colors[1].equals("W") ){
                     allowed = true;
                 }else if(pawnFirstTurn || coordinateXYZV[0]==coordinateXYZV[2] && coordinateXYZV[1]==coordinateXYZV[3]){
                     tile[coordinateXYZV[0]][coordinateXYZV[1]].getComponent(0).setName(colors[0]+"Pawn1");
@@ -163,7 +163,7 @@ try {
                 }
                 break;
             case "Knight":
-                if (coordinateXYZV[0]==coordinateXYZV[2]+2 && coordinateXYZV[1]==coordinateXYZV[3]+1 |
+                if (coordinateXYZV[0]==coordinateXYZV[2]+2 && coordinateXYZV[1]==coordinateXYZV[3]+1 ||
                     coordinateXYZV[0]==coordinateXYZV[2]+2 && coordinateXYZV[1]==coordinateXYZV[3]-1 ||
                     coordinateXYZV[0]==coordinateXYZV[2]-2 && coordinateXYZV[1]==coordinateXYZV[3]+1 ||
                     coordinateXYZV[0]==coordinateXYZV[2]-2 && coordinateXYZV[1]==coordinateXYZV[3]-1 ||
