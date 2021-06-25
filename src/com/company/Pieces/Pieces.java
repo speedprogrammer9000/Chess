@@ -38,6 +38,7 @@ try {
     /**
      * bewegt die figuren auf dem gameboard
      * funktioniert indem das jlabel der entsprechenden figur zwischengespeichert wird, dieses dann entfernt und an der position des 2. klicks eingefügt wird
+     * realisiert außerdem das schlagen von figuren und überpüft ob eine figur geschlagen wird/geschlagen werden darf
      * @param coordinateXYZV
      * @param colors
      * @param tile
@@ -71,11 +72,11 @@ try {
         SwingUtilities.updateComponentTreeUI(chessBoard);
     }
 
-    //Aktuelle und Neue Koordinaten der gewählten Figur
+
 
     /**
      * stellt informationen für die movePiece() methode zur verfügung.
-     * diese sind : farbe der spielfiguren, positionen
+     * diese sind : farbe der spielfiguren, positionen, welcher spieler am zug ist
      * @param e mousehandler
      * @param coordinates
      * @param tile
@@ -126,11 +127,27 @@ try {
                 }
             }
     }
+
+    /**
+     *
+     * @param coordinateXYZV
+     * @param tile
+     * @return namen der spielfigur
+     */
     public String getPiece(int[] coordinateXYZV, JPanel[][] tile){
         int stringLength = tile[coordinateXYZV[0]][coordinateXYZV[1]].getComponent(0).getName().length();
 
         return tile[coordinateXYZV[0]][coordinateXYZV[1]].getComponent(0).getName().substring(1,stringLength);
     }
+
+    /**
+     * überprüft ob der gewünschte spielzug ein legaler spielzug ist
+     * @param coordinateXYZV
+     * @param piece
+     * @param colors
+     * @param tile
+     * @return
+     */
     public boolean canMove(int[] coordinateXYZV, String piece, String[] colors, JPanel[][] tile) {
         Boolean allowed = false;
         boolean pawnFirstTurn = false;

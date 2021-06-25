@@ -50,10 +50,7 @@ public class EntryUI {
      * @return the useable String[]
      */
     public String[] playerNamesToString(){
-        playerNames.add("Lasse");
-        playerNames.add("Sven");
-        //playerNames.add("Fabian");
-        int l=playerNames.size();
+
         String[] arrayNames= playerNames.toArray(new String[playerNames.size()]);
 
         return arrayNames;
@@ -108,6 +105,7 @@ public class EntryUI {
 
     /**
      * startet kleines ui für den nameinput in welchem serialisierung/deserialiserung sowie der client aufgerufen wird
+     * stellt außerdem entsprechende actionlistener zur verfügung
      * @throws IOException
      */
     public void inputName() throws IOException {
@@ -198,7 +196,7 @@ public class EntryUI {
     }
 
     /**
-     * serializes the arraylist playerNames
+     * serialisert das arraylist objekt
      * @param arraylist
      */
     public void serializeArrayList(ArrayList<String> arraylist){
@@ -214,7 +212,7 @@ public class EntryUI {
     }
 
     /**
-     * deserializes the arraylist playerNames
+     * deserialisert das hinterlegte arraylist objekt für weitere verwendung
      */
     public void deserializeArrayList(){
         try

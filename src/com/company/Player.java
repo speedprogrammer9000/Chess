@@ -2,6 +2,9 @@ package com.company;
 
 import java.io.Serializable;
 
+/**
+ * relikt von verworfenen plänen. bleibt drin falls man in der zukunft noch dran weiterarbeitet
+ */
 public class Player implements Serializable {
     public String playerName;
 

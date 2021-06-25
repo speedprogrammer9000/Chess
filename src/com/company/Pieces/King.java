@@ -33,7 +33,15 @@ public class King extends JLabel implements Piece {
     public Icon image() {
         return null;
     }
-
+    /**
+     * fügt die entsprechende spielfigur ein. konkrete implementierung in den klassen der figuren, einziger unterschied der filepath für das entsprechende bild
+     * @param x
+     * @param y
+     * @param tile
+     * @param pName
+     * @param white
+     * @throws IOException
+     */
     @Override
     public void addPiece(int y, int x, JPanel[][] tile, String pName, boolean white) throws IOException {
         JLabel label = new JLabel();
